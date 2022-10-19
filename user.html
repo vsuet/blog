@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+
+    <title>Blog</title>
+</head>
+<body>
+    <header>
+        <h1>Блог</h1>
+    </header>
+    <main>
+        <section class="btn-open">
+            <button class="js-btn-users">Показать список пользователь</button>
+            <button><a href="posts.html">Список постов</a></button>
+            <button><a href="comments.html">Список комментариев к посту</a></button>
+            <button><a href="photos.html">Список фотографий</a></button>
+        </section>
+
+        <section class="choice-list-h2">
+            <h2>Выберите список</h2>
+        </section>
+
+        <section class="table-users">
+            <h2>Список пользователей</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Имя</th>
+                        <th>Фамилия</th>
+                        <th>e-mail</th>
+                        <th>Улица</th>
+                        <th>Дом</th>
+                        <th>Город</th>
+                        <th>Телефон</th>
+                        <th>Широта</th>
+                        <th>Долгота</th>
+                    </tr>
+                </thead>
+                <tbody class="js-add-users">
+                </tbody>
+            </table>
+        </section>
+        <section class="table-posts">
+            <h2>Список постов</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Заголовок</th>
+                    <th>Содержание</th>
+                </tr>
+            </thead>
+            <tbody class="js-posts">
+            </tbody>
+        </table>
+        </section>
+
+        
+        <!--
+        <h2>Список коментариев к посту</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Имя</th>
+                    <th>e-mail</th>
+                    <th>Содержание</th>
+                </tr>
+            </thead>
+            <tbody class="js-comments">
+            </tbody>
+        </table>
+
+        <h2>Список коментариев к посту</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Имя</th>
+                    <th>e-mail</th>
+                    <th>Содержание</th>
+                </tr>
+            </thead>
+            <tbody class="js-comments">
+            </tbody>
+        </table-->
+    </main>
+    <script src="js/user.js"></script>
+    <script src="js/initVariables.js"></script>
+</body>
+</html>
