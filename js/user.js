@@ -1,3 +1,5 @@
+//const baseUrl = 'https://jsonplaceholder.typicode.com/users';
+
 const btnOpenUsers = document.querySelector('.js-btn-users'),
 choiceList = document.querySelector('.choice-list-h2');
 
