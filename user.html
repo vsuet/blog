@@ -14,17 +14,17 @@
     </header>
     <main>
         <section class="btn-open">
-            <button class="js-btn-users">Показать список пользователь</button>
+            <button onclick="Users();">Показать список пользователь</button>
             <button><a href="posts.html">Список постов</a></button>
             <button><a href="comments.html">Список комментариев к посту</a></button>
             <button><a href="photos.html">Список фотографий</a></button>
         </section>
 
-        <section class="choice-list-h2">
+        <section class="choice-list-h2" id="choice-list-h2">
             <h2>Выберите список</h2>
         </section>
 
-        <section class="table-users">
+        <section class="add-users" id="add-users">
             <h2>Список пользователей</h2>
             <table>
                 <thead>
@@ -40,12 +40,11 @@
                         <th>Долгота</th>
                     </tr>
                 </thead>
-                <tbody class="js-add-users">
+                <tbody id="js-add-users">
                 </tbody>
             </table>
         </section>
     </main>
     <script src="js/user.js"></script>
-    <script src="js/initVariables.js"></script>
 </body>
 </html>

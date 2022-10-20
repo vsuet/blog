@@ -1,39 +1,30 @@
-//const baseUrl = 'https://jsonplaceholder.typicode.com/users';
+const addUsers = document.getElementById('js-add-users');
+const choiceList = document.getElementById('choice-list-h2');
+const tableUsers = document.getElementById('add-users');
 
-const btnOpenUsers = document.querySelector('.js-btn-users'),
-choiceList = document.querySelector('.choice-list-h2');
+let users = [];
 
-
-const tableUsers = document.querySelector('.table-users');
-
-let urls = {
-  'urlUsers': 'https://jsonplaceholder.typicode.com/users',
-  'urlPosts': 'https://jsonplaceholder.typicode.com/users'
-}
-
-//fetch('https://jsonplaceholder.typicode.com/users')
-//.then(response => response.json())
-//.then(users => console.log(users));
-
-btnOpenUsers.addEventListener('click', function(){
+function Users() {
   choiceList.classList.add('show');
 
   tableUsers.classList.add('show');
 
-  let elUsers = document.querySelector('.js-add-users');
+  fetch("https://jsonplaceholder.typicode.com/users")
+    .then(response => response.json())
+    .then(addUsersArr => addUsersArr.forEach(user => {
+      addUsers.innerHTML += 
+      `<tr id="js-add-users">
+        <td>${user.name}</td>
+        <td>${user.username}</td>
+        <td>${user.email}</td>
+        <td>${user.address.street}</td>
+        <td>${user.address.suite}</td>
+        <td>${user.address.city}</td>
+        <td>${user.address.zipcode}</td>
+        <td>${user.address.geo.lat}</td>
+        <td>${user.address.geo.lng}</td>
+      </tr>`
 
-  for (let index = 0; index < users.length; index++) {
-    elUsers.innerHTML += 
-    `<tr class="js-add-users">
-        <td>${users[index].name}</td>
-        <td>${users[index].username}</td>
-        <td>${users[index].email}</td>
-        <td>${users[index].address.street}</td>
-        <td>${users[index].address.suite}</td>
-        <td>${users[index].address.city}</td>
-        <td>${users[index].address.zipcode}</td>
-        <td>${users[index].address.geo.lat}</td>
-        <td>${users[index].address.geo.lng}</td>
-    </tr>`
-  };
-});
+        users.push(user);
+    }))
+};

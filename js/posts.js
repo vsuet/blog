@@ -1,22 +1,23 @@
-const btnOpenPosts = document.querySelector('.js-btn-posts'),
-choiceList = document.querySelector('.choice-list-h2');
+const addPosts = document.getElementById('js-add-posts');
+const choiceList = document.getElementById('choice-list-h2');
 
-const tablePosts = document.querySelector('.table-posts');
+let posts = [];
 
-btnOpenPosts.addEventListener('click', function(){
+function Posts() {
     choiceList.classList.add('show');
 
-    tablePosts.classList.add('show');
-  
-    let elPosts = document.querySelector('.js-posts');
-  
-    for (let index = 0; index < posts.length; index++) {
-        elPosts.innerHTML += 
-        `<div class="js-posts">
-            <h2>${posts[index].title}</h2>
-            <p class="body">${posts[index].body}</p>
-            <p class="id">id:${posts[index].id}</p>
-            <hr>
-        </div>`
-    };
-  });
+    addPosts.classList.add('show');
+
+    fetch("https://jsonplaceholder.typicode.com/posts")
+    .then(response => response.json())
+    .then(addPostsArr => addPostsArr.forEach(post => {
+        addPosts.innerHTML += 
+            `<div id="js-add-posts">
+                <h2>${post.title}</h2>
+                <p class="body">${post.body}</p>
+                <p class="id">id:${post.id}</p>
+                <hr>
+            </div>`
+        posts.push(post);
+}))
+};

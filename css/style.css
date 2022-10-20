@@ -18,12 +18,12 @@ h1{
 .choice-list-h2.show {
     display: none;
 }
-.table-users > h2{
+.add-users > h2{
     text-align: center;
     margin-bottom: 10px;
     margin-top: 50px;
 }
-.table-users > table {
+.add-users > table {
     text-align: center;
     border: 1px solid #242a5b
 }
@@ -39,10 +39,10 @@ h1{
     margin: 1px 0 0 2px;
     border: 0;
 }
-.table-users{
+.add-users{
     display: none;
 }
-.table-users.show {
+.add-users.show {
     display: flex;
     flex-direction: column;
 }
@@ -77,17 +77,17 @@ a {
 .js-btn-back:hover {
     background-color: #c06a6a;
 }
-.table-posts{
+.add-posts{
     display: none;
 }
-.table-posts > table{
+.add-posts > table{
     border: 1px solid #242a5b;
 }
-.table-posts.show {
+.add-posts.show {
     display: flex;
     flex-direction: column;
 }
-.js-posts > h2 {
+#js-add-posts > h2 {
     margin: 50px 0 5px 30px;
 }
 .id {
@@ -95,7 +95,7 @@ a {
     color: #ff0000;
     margin: -15px 20px 10px 0;
 }
-.js-posts > .body{
+#js-add-posts > .body{
     margin: 0 0 5px 50px;
 }
 

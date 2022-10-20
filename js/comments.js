@@ -1,22 +1,23 @@
-const btnOpenPosts = document.querySelector('.js-btn-comments'),
-choiceList = document.querySelector('.choice-list-h2');
+const addComments = document.getElementById('js-add-comments');
+const choiceList = document.getElementById('choice-list-h2');
 
-const tablePosts = document.querySelector('.table-comments');
+let comments = [];
 
-btnOpenPosts.addEventListener('click', function(){
+function Comments() {
     choiceList.classList.add('show');
-    
-    tablePosts.classList.add('show');
-  
-    let elPosts = document.querySelector('.js-comments');
-  
-    for (let index = 0; index < posts.length; index++) {
-        elPosts.innerHTML += 
-        `<div class="js-comments">
-            <h2>${comments[index].name}</h2>
-            <p class="body">${comments[index].body}</p>
-            <p class="email">${comments[index].email}</p>
+
+    addComments.classList.add('show');
+
+    fetch("https://jsonplaceholder.typicode.com/posts/1/comments")
+    .then(response => response.json())
+    .then(addCommentsArr => addCommentsArr.forEach(comment => {
+        addComments.innerHTML += 
+        `<div class="js-comments" id="js-add-comments">
+            <h2>${comment.name}</h2>
+            <p class="body">${comment.body}</p>
+            <p class="email">${comment.email}</p>
             <hr>
         </div>`
-    };
-  });
+        comments.push(comment);
+}))
+};
