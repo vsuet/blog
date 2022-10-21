@@ -1,0 +1,32 @@
+@import "reset.css";
+@import "footer.css";
+
+body {
+    background: skyblue;
+}
+
+.title {
+    font-size: 3rem;
+    font-family: Garamond;
+    text-align: center;
+    margin-bottom: 5%;
+}
+
+.posts {
+    margin-bottom: 5%;
+}
+
+.post-item {
+    width: 50%;
+    border: 1px solid red;
+    padding: 2% 5% 5% 5%;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.post-title {
+    margin-bottom: 2%;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
