@@ -1,0 +1,18 @@
+@import "reset.css";
+@import "footer.css";
+
+.title {
+    font-size: 3rem;
+    font-family: Garamond;
+    text-align: center;
+    margin-bottom: 5%;
+}
+
+.photos {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.photo-item {
+    margin: 0 auto;
+}
