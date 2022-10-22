@@ -247,7 +247,7 @@ async function postPage() {
                 </section>
                 <section class="one-post"><section class="main-post">
                     <div class="post-header">
-                        <img src="/images/users/user-${userPhoto}.jpg" alt="Фото пользователя" width="80" height="80">
+                        <img src="images/users/user-${userPhoto}.jpg" alt="Фото пользователя" width="80" height="80">
                         <p>${user.name}</p>
                     </div>
                     <div class="post-title">
