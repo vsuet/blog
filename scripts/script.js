@@ -8,7 +8,9 @@ async function loadSystem() {
         "home": homePage,
         "loading": loadingPage,
         "users": usersPage,
-        "user": userPage
+        "user": userPage,
+        "album": albumPage,
+        "post": postPage
     }
     if (!url.searchParams.get("section")) await homePage();
     else if (pages[url.searchParams.get("section")]) await pages[url.searchParams.get("section")]();
@@ -88,7 +90,7 @@ async function usersPage() {
         </section>
         <section class="users">
             ${users.map(user => `
-                <div class="user">
+                <div class="card">
                     <h2>${user.name}</h2>
                     <p>${user.email}</p>
                     <a href="index.html?section=user&id=${user.id}">Подробнее</a>
@@ -113,6 +115,8 @@ async function userPage() {
     } else {
         try {
             const user = await api("users", id);
+            const albums = await api("albums", `?userId=${id}`);
+            const posts = await api("posts", `?userId=${id}`);
             setTitle(user.name);
             body(`
                 <section class="mini-header">
@@ -131,6 +135,33 @@ async function userPage() {
                         <p>Адрес: ${user.address.street}, ${user.address.suite}, ${user.address.city}</p>
                         <p>Компания: ${user.company.name}</p>
                     </div>
+                    <h2 class="albums-header">Альбомы с фотографиями:</h2>
+                    <div class="albums">
+                        ${albums.map(album => `
+                            <div class="card">
+                                <p>Номер альбома: ${album.id}</p>
+                                <a href="index.html?section=album&id=${album.id}">${album.title}</a>
+                            </div>
+                        `).join("")}
+                    </div>
+                    <h2 class="posts-header">Посты пользователя:</h2>
+                    <div class="posts">
+                        ${posts.map(post => `
+                            <div class="post">
+                                <div class="post-title">
+                                    <p>${post.title}</p>
+                                </div>
+                                <hr>
+                                <div class="post-body">
+                                    <p>${post.body}</p>
+                                </div>
+                                <hr>
+                                <div class="post-footer">
+                                    <a href="index.html?section=post&id=${post.id}">Подробнее</a>
+                                </div>
+                            </div>
+                        `).join("")}
+                    </div>
                 </section>
         `);
         } catch {
@@ -139,6 +170,120 @@ async function userPage() {
                 <section class="mini-header">
                     <h1>Пользователь не найден</h1>
                     <p>Пользователь с ID ${id} не найден</p>
+                    <a href="index.html?section=users"><b>Открыть полный список пользователей</b></a>
+                </section>
+            `);
+        }
+    }
+}
+
+async function albumPage() {
+    const id = url.searchParams.get("id");
+    if (!id) {
+        setTitle("Не указан ID альбома");
+        body(`
+            <section class="mini-header">
+                <h1>Не указан ID альбома</h1>
+                <p>Пожалуйста, укажите ID альбома</p>
+                <a href="index.html?section=users"><b>Открыть полный список пользователей</b></a>
+            </section>
+        `);
+    } else {
+        try {
+            const album = await api("albums", id);
+            const photos = await api("photos", `?albumId=${id}`);
+            setTitle(album.title);
+            body(`
+                <section class="mini-header">
+                    <h1>Информация об альбоме</h1>
+                    <p>${album.title}</p>
+                    <a href="index.html?section=user&id=${album.userId}"><b>Вернуться к пользователю</b></a>
+                </section>
+                <section class="photos">
+                    ${photos.map(photo => `
+                        <div class="card">
+                            <img src="${photo.thumbnailUrl}" alt="Фото" width="150">
+                            <p>${photo.title}</p>
+                        </div>
+                    `).join("")}
+                </section>
+                    `);
+        } catch {
+            setTitle("Альбом не найден");
+            body(`
+                <section class="mini-header">
+                    <h1>Альбом не найден</h1>
+                    <p>Альбом с ID ${id} не найден</p>
+                    <a href="index.html?section=users"><b>Открыть полный список пользователей</b></a>
+                </section>
+            `);
+        }
+    }
+}
+
+async function postPage() {
+    const id = url.searchParams.get("id");
+    if (!id) {
+        setTitle("Не указан ID поста");
+        body(`
+            <section class="mini-header">
+                <h1>Не указан ID поста</h1>
+                <p>Пожалуйста, укажите ID поста</p>
+                <a href="index.html?section=users"><b>Открыть полный список пользователей</b></a>
+            </section>
+        `);
+    } else {
+        try {
+            const post = await api("posts", id);
+            const comments = await api("comments", `?postId=${id}`);
+            const user = await api("users", post.userId);
+            const userPhoto = random(0, 15);
+            setTitle(post.title);
+            body(`
+                <section class="mini-header">
+                    <h1>Информация о посте</h1>
+                    <p>${post.title}</p>
+                    <a href="index.html?section=user&id=${post.userId}"><b>Вернуться к пользователю</b></a>
+                </section>
+                <section class="one-post"><section class="main-post">
+                    <div class="post-header">
+                        <img src="/images/users/user-${userPhoto}.jpg" alt="Фото пользователя" width="80" height="80">
+                        <p>${user.name}</p>
+                    </div>
+                    <div class="post-title">
+                        <p>${post.title}</p>
+                    </div>
+                    <hr>
+                    <div class="post-body">
+                        <p>${post.body}</p>
+                    </div>
+                </section>
+                <h2>Комментарии:</h2>
+                <section class="post-comments">
+                        <div class="comments">
+                            ${comments.map(comment => `
+                                <div class="comment">
+                                    <div class="comment-name">
+                                        <p>${comment.name}</p>
+                                    </div>
+                                    <div class="comment-body">
+                                        <p>${comment.body}</p>
+                                    </div>
+                                    <div class="comment-email">
+                                        <p>${comment.email}</p>
+                                    </div>
+                                </div>
+                            `).join("")}
+                        </div>   
+                    </section>
+                    </section> 
+            `);
+        } catch {
+            setTitle("Пост не найден");
+            body(`
+                <section class="mini-header">
+                    <h1>Пост не найден</h1>
+                    <p>Пост с ID ${id} не найден</p>
                     <a href="index.html?section=users"><b>Открыть полный список пользователей</b></a>
                 </section>
             `);
