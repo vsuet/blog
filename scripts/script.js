@@ -1,7 +1,7 @@
-const url = new URL(window.location.href);
+const url = new URL(window.location.href)
 loadingPage()
 
-loadSystem().then(() => console.log("loaded"));
+loadSystem().then(() => console.log("loaded"))
 
 async function loadSystem() {
     const pages = {
@@ -12,31 +12,31 @@ async function loadSystem() {
         "album": albumPage,
         "post": postPage
     }
-    if (!url.searchParams.get("section")) await homePage();
-    else if (pages[url.searchParams.get("section")]) await pages[url.searchParams.get("section")]();
+    if (!url.searchParams.get("section")) await homePage()
+    else if (pages[url.searchParams.get("section")]) await pages[url.searchParams.get("section")]()
     else {
-        setTitle("Страница не найдена");
+        setTitle("Страница не найдена")
         body(`
             <section class="mini-header">
                 <h1>404</h1>
                 <p>Извините, страница не найдена</p>
                 <a href="index.html">Мне всё равно, <b>верни меня на главную</b></a>
             </section>
-        `);
+        `)
     }
 }
 
 function random(min, max) {
-    return Math.floor(Math.random() * (max - min) + min);
+    return Math.floor(Math.random() * (max - min) + min)
 }
 
 async function api(section, id = "") {
-    const data = await fetch(`https://jsonplaceholder.typicode.com/${section}/${id}`);
-    return data.json();
+    const data = await fetch(`https://jsonplaceholder.typicode.com/${section}/${id}`)
+    return data.json()
 }
 
 function body(html) {
-    const body = document.getElementById("body");
+    const body = document.getElementById("body")
     body.innerHTML = `
     
     <header>
@@ -55,34 +55,55 @@ function body(html) {
 }
 
 function setTitle(title) {
-    document.getElementById("title").innerHTML = `Json Blog | ${title}`;
+    document.getElementById("title").innerHTML = `Json Blog | ${title}`
 }
 
 // Страницы сайта
 
-function loadingPage() {
-    setTitle("Загрузка");
+function noInfoPage(section, id = undefined) {
+    if (id === undefined) {
+        setTitle(`Не указан ID ${section}`)
+        return body(`
+            <section class="mini-header">
+                <h1>Не указан ID ${section}</h1>
+                <p>Пожалуйста, укажите ID ${section}</p>
+                <a href="index.html">Мне все равно, <b>верни меня на главную</b></a>
+            </section>
+        `)
+    }
+    setTitle(`${section} не найден`)
     body(`
         <section class="mini-header">
-            <p>Нужно время, чтобы загрузить данные</p>
+            <h1>${section} не найден</h1>
+            <p>${section} с ID ${id} не найден</p>
+            <a href="index.html">Мне все равно, <b>верни меня на главную</b></a>
+        </section>
+    `)
+}
+
+function loadingPage() {
+    setTitle("Загрузка")
+    body(`
+        <section class="mini-header">
+            <h1>Нужно время, чтобы загрузить данные</h1>
             <p>Пожалуйста, подождите</p>
         </section>
     `)
 }
 
 async function homePage() {
-    setTitle("Главная");
+    setTitle("Главная")
     body(`
         <section class="mini-header">
-            <p>Добро пожаловать на Json Blog</p>
+            <h1>Добро пожаловать на Json Blog</h1>
             <p>Здесь вы можете получить доступ к информации о пользователях</p>
         </section>
     `)
 }
 
 async function usersPage() {
-    setTitle("Пользователи");
-    const users = await api("users");
+    setTitle("Пользователи")
+    const users = await api("users")
     body(`
         <section class="mini-header">
             <h1>Пользователи</h1>
@@ -101,23 +122,16 @@ async function usersPage() {
 }
 
 async function userPage() {
-    const id = url.searchParams.get("id");
-    const userPhoto = random(0, 15);
-    if (!id) {
-        setTitle("Не указан ID пользователя");
-        body(`
-            <section class="mini-header">
-                <h1>Не указан ID пользователя</h1>
-                <p>Пожалуйста, укажите ID пользователя</p>
-                <a href="index.html?section=users"><b>Открыть полный список пользователей</b></a>
-            </section>
-        `);
-    } else {
+    const id = url.searchParams.get("id")
+    const userPhoto = random(0, 15)
+    if (!id) return noInfoPage("пользователя")
+    else {
         try {
-            const user = await api("users", id);
-            const albums = await api("albums", `?userId=${id}`);
-            const posts = await api("posts", `?userId=${id}`);
-            setTitle(user.name);
+            const user = await api("users", id)
+            const albums = await api("albums", `?userId=${id}`)
+            const posts = await api("posts", `?userId=${id}`)
+            if (!user.name) return noInfoPage("Пользователь", id)
+            setTitle(user.name)
             body(`
                 <section class="mini-header">
                     <h1>Информация о пользователе</h1>
@@ -161,36 +175,23 @@ async function userPage() {
                         `).join("")}
                     </div>
                 </section>
-        `);
+        `)
         } catch {
-            setTitle("Пользователь не найден");
-            body(`
-                <section class="mini-header">
-                    <h1>Пользователь не найден</h1>
-                    <p>Пользователь с ID ${id} не найден</p>
-                    <a href="index.html?section=users"><b>Открыть полный список пользователей</b></a>
-                </section>
-            `);
+            noInfoPage("Пользователь", id)
         }
     }
 }
 
 async function albumPage() {
-    const id = url.searchParams.get("id");
+    const id = url.searchParams.get("id")
     if (!id) {
-        setTitle("Не указан ID альбома");
-        body(`
-            <section class="mini-header">
-                <h1>Не указан ID альбома</h1>
-                <p>Пожалуйста, укажите ID альбома</p>
-                <a href="index.html?section=users"><b>Открыть полный список пользователей</b></a>
-            </section>
-        `);
+        noInfoPage("альбома")
     } else {
         try {
-            const album = await api("albums", id);
-            const photos = await api("photos", `?albumId=${id}`);
-            setTitle(album.title);
+            const album = await api("albums", id)
+            const photos = await api("photos", `?albumId=${id}`)
+            if (!album.title) return noInfoPage("Альбом", id)
+            setTitle(album.title)
             body(`
                 <section class="mini-header">
                     <h1>Информация об альбоме</h1>
@@ -205,38 +206,25 @@ async function albumPage() {
                         </div>
                     `).join("")}
                 </section>
-                    `);
+                    `)
         } catch {
-            setTitle("Альбом не найден");
-            body(`
-                <section class="mini-header">
-                    <h1>Альбом не найден</h1>
-                    <p>Альбом с ID ${id} не найден</p>
-                    <a href="index.html?section=users"><b>Открыть полный список пользователей</b></a>
-                </section>
-            `);
+            noInfoPage("Альбом", id)
         }
     }
 }
 
 async function postPage() {
-    const id = url.searchParams.get("id");
+    const id = url.searchParams.get("id")
     if (!id) {
-        setTitle("Не указан ID поста");
-        body(`
-            <section class="mini-header">
-                <h1>Не указан ID поста</h1>
-                <p>Пожалуйста, укажите ID поста</p>
-                <a href="index.html?section=users"><b>Открыть полный список пользователей</b></a>
-            </section>
-        `);
+        noInfoPage("поста")
     } else {
         try {
-            const post = await api("posts", id);
-            const comments = await api("comments", `?postId=${id}`);
-            const user = await api("users", post.userId);
-            const userPhoto = random(0, 15);
-            setTitle(post.title);
+            const post = await api("posts", id)
+            const comments = await api("comments", `?postId=${id}`)
+            const user = await api("users", post.userId)
+            const userPhoto = random(0, 15)
+            if (!post.title) return noInfoPage("Пост", id)
+            setTitle(post.title)
             body(`
                 <section class="mini-header">
                     <h1>Информация о посте</h1>
@@ -275,16 +263,9 @@ async function postPage() {
                         </div>   
                     </section>
                     </section> 
-            `);
+            `)
         } catch {
-            setTitle("Пост не найден");
-            body(`
-                <section class="mini-header">
-                    <h1>Пост не найден</h1>
-                    <p>Пост с ID ${id} не найден</p>
-                    <a href="index.html?section=users"><b>Открыть полный список пользователей</b></a>
-                </section>
-            `);
+            noInfoPage("Пост", id)
         }
     }
 }
