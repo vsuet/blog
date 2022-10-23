@@ -1,25 +1,28 @@
 @import "default.css";
 @import "header.css";
 @import "user.css";
-@media (prefers-color-scheme: dark) {
-    #body {
-        background: #111111;
-        color: #f4f4f4;
-    }
+@import "dark.css";
 
-    .logo {
-        color: #f4f4f4;
+@media screen and (max-width: 1000px) {
+    html {
+        font-size: 8px;
     }
+}
 
-    header>div>a{
-        color: #f4f4f4;
+@media screen and (max-width: 800px) {
+    html {
+        font-size: 5px;
     }
+}
 
-    .card, .post, .comment, .main-post {
-        border: 0.1rem solid #f4f4f4;
-    }
-
-    .card a, .post a {
-        color: #557afc;
+@media screen and (max-width: 500px) {
+    .user-data {
+        grid-template-areas:
+            "user-photo"
+            "user-info"
+            "albums-header"
+            "albums"
+            "posts-header"
+            "posts";
     }
 }

@@ -1,6 +1,6 @@
 @import "posts.css";
 .card {
-    border: 0.1rem solid #000;
+    border: 1px solid #000;
     border-radius: 1.4rem;
     padding: 1rem;
     margin: 1rem;
@@ -22,11 +22,11 @@
 .user-data {
     display: grid;
     grid-template-areas:
-    "user-photo user-info"
-    "albums-header albums-header"
-    "albums albums"
-    "posts-header posts-header"
-    "posts posts";
+        "user-photo user-info"
+        "albums-header albums-header"
+        "albums albums"
+        "posts-header posts-header"
+        "posts posts";
     justify-items: center;
     align-items: center;
 }
@@ -56,4 +56,8 @@
 
 .albums {
     grid-area: albums;
+}
+
+.card a, .post a {
+    color: #557afc;
 }
