@@ -151,11 +151,9 @@ async function userPage() {
                                 <div class="post-title">
                                     <p>${post.title}</p>
                                 </div>
-                                <hr>
                                 <div class="post-body">
                                     <p>${post.body}</p>
                                 </div>
-                                <hr>
                                 <div class="post-footer">
                                     <a href="index.html?section=post&id=${post.id}">Подробнее</a>
                                 </div>

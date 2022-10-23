@@ -27,13 +27,14 @@ header a {
     flex-direction: column;
     align-items: center;
     background: #557afc;
+    color: #fff;
     font-size: 3rem;
     height: 25rem;
     justify-content: center;
 }
 
 .mini-header a {
-    color: #fff;
+    color: #c4c4c4;
 }
 
 .link:hover {

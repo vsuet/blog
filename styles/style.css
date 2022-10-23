@@ -1,3 +1,25 @@
 @import "default.css";
 @import "header.css";
 @import "user.css";
+@media (prefers-color-scheme: dark) {
+    #body {
+        background: #111111;
+        color: #f4f4f4;
+    }
+
+    .logo {
+        color: #f4f4f4;
+    }
+
+    header>div>a{
+        color: #f4f4f4;
+    }
+
+    .card, .post, .comment, .main-post {
+        border: 0.1rem solid #f4f4f4;
+    }
+
+    .card a, .post a {
+        color: #557afc;
+    }
+}
