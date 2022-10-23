@@ -1,0 +1,18 @@
+@media (prefers-color-scheme: dark) {
+    #body {
+        background: #111111;
+        color: #f4f4f4;
+    }
+
+    .logo {
+        color: #f4f4f4;
+    }
+
+    header>div>a{
+        color: #f4f4f4;
+    }
+
+    .card, .post, .comment, .main-post {
+        border: 1px solid #f4f4f4;
+    }
+}

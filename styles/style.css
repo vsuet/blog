@@ -1,0 +1,28 @@
+@import "default.css";
+@import "header.css";
+@import "user.css";
+@import "dark.css";
+
+@media screen and (max-width: 1000px) {
+    html {
+        font-size: 8px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    html {
+        font-size: 5px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .user-data {
+        grid-template-areas:
+            "user-photo"
+            "user-info"
+            "albums-header"
+            "albums"
+            "posts-header"
+            "posts";
+    }
+}

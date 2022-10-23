@@ -1,0 +1,42 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    font-size: 2rem;
+    height: 5rem;
+    align-items: center;
+    padding: 0 3rem;
+}
+
+header a, .mini-header a {
+    text-decoration: none;
+    padding: 0.5rem;
+}
+
+header a {
+    color: #000;
+}
+
+.logo {
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+.mini-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #557afc;
+    color: #fff;
+    font-size: 3rem;
+    height: 25rem;
+    justify-content: center;
+}
+
+.mini-header a {
+    color: #c4c4c4;
+}
+
+.link:hover {
+    color: #557afc;
+}
