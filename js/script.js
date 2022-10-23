@@ -5,9 +5,11 @@ const postTitle = document.getElementById('post-title')
 const postText = document.getElementById('post-text')
 const commentBlock = document.getElementById('comments-block')
 const postUser = document.getElementById('post-user')
+const images = document.getElementById('images')
 
 let posts = []
 let users = []
+let pictures = []
 
 fetch("https://jsonplaceholder.typicode.com/posts")
     .then(res => res.json())
@@ -20,13 +22,33 @@ fetch("https://jsonplaceholder.typicode.com/users")
     .then(res => res.json())
     .then(usersListArr => usersListArr.forEach(user => {
         usersList.innerHTML += `
-        <div id="${user.id}" class="user">
-            <img src="user.png">
-            <p>${user.username}</p> 
+        <div class="user">
+            <img src="images/user.png">
+            <p><a href="user.html?id=${user.id}" class="link-user">${user.username}</a></p> 
         </div>               
         `
         users.push(user)
     }))
+
+window.onload = () => {
+    fetch("https://jsonplaceholder.typicode.com/photos")
+        .then(res => res.json())
+        .then(photos => photos.forEach(photo => {
+            pictures.push(photo)
+        }))
+    setTimeout(viewPhotos, 3000)
+}
+
+function viewPhotos () {
+    let i = 0
+
+    while (i < 5) {
+        images.innerHTML += `
+            <img src="${pictures[i].url}" class="image">
+        `
+        i++
+    }
+}
 
 postsList.onclick = (click) => {
     const target = click.target
@@ -39,7 +61,7 @@ postsList.onclick = (click) => {
         commentBlock.innerHTML = `<h2>Комментарии</h2>`
 
         postId.innerText = 'Пост ' + posts[postid].id
-        postUser.innerText = '(Пользователь ' + users[userid].username + ')'
+        postUser.innerHTML = `(Пользователь <a href="user.html?id=${users[userid].id}">${users[userid].username}</a>)`
         postTitle.innerText = posts[postid].title
         postText.innerText = posts[postid].body
 
@@ -58,3 +80,5 @@ postsList.onclick = (click) => {
             }))
     }
 }
+
+//postUser.innerHTML = '(Пользователь ' + users[userid].username + ')'
