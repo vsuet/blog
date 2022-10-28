@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+    <link rel="stylesheet" href="stile.css">
+</head>
+<body>
+<header>
+    <h1>Блог</h1>
+</header>
+<hr>
+<main>
+    <section>
+        <form action="https://jsonplaceholder.typicode.com/comments" method="get">
+            <label for="post-id" class="form-element">Запись</label>
+            <input type="number" min="1" step="1" id="post-id" name="postId" class="form-element" required >
+            <button type="submit" class="form-element submit">Сохранить</button>
+            <button type="reset" class="form-element clear">Очистить</button>
+        </form>
+    </section>
+    <hr>
+
+    <nav>
+        <ul>
+            <li><a href="users.html">Пользователи</a></li>
+            <li><a href="posts.html">Список постов</a></li>
+            <li><a href="comments.html">Комментарии</a></li>
+            <li><a href="photos.html">Фотографии</a></li>
+            
+        </ul>
+    </nav>
+
+    <section id="post-output"></section>
+</main>
+
+</body>
+</html>
