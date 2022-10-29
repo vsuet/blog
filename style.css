@@ -1,0 +1,144 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: content-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+
+header{
+    text-align: center;
+    color: white;
+    background-color: #000000;
+
+}
+
+body {
+    background-color: #4aa1db;
+}
+
+h1 {
+    padding: 10px;
+}
+
+h2 {
+    margin: 10px 0;
+}
+
+.link-user {
+    color: black;
+    text-decoration: none;
+}
+
+.container-main {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: 1fr 2.7fr 1fr;
+    grid-template-rows: 500px auto;
+    grid-template-areas:"posts-list-block post-block users-list-block"
+                        "posts-list-block post-block images-block";
+    margin: 10px;
+}
+
+.block {
+    height: max-content;
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid #9b9b9b;
+    
+    box-shadow: 0 0 5px #c7c7c7;
+}
+
+#posts-list-block {
+    grid-area: posts-list-block;
+}
+
+#post-block {
+    grid-area: post-block;
+}
+
+#usrs-list-block {
+    grid-area: users-list-block;
+}
+
+#images-block {
+    grid-area: images-block;
+}
+
+#post-user {
+    font-size: 12pt;
+}
+
+#post-body {
+    margin-bottom: 30px;
+}
+
+#post-text {
+    text-align: justify;
+    font-size: 16pt;
+}
+
+#posts-list > p {
+    margin: 20px 0;
+    cursor: pointer;
+    color: black;
+    font-size: 14pt;
+}
+
+.post-title {
+    max-width: 350px;
+    width: max-content;
+}
+
+.user {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    max-width: 354px;
+    width: max-content;
+    padding: 5px 0;
+    font-size: 14pt;
+}
+
+#user-block {
+    margin: 10px;
+}
+
+img {
+    width: 20px;
+    height: 20px;
+    margin: 5px;
+}
+
+.user-photo {
+    width: 256px;
+    height: 256px;
+}
+
+.comment {
+    margin: 20px 0;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 20px;
+}
+
+.comment-text {
+    margin-top: 10px;
+    font-size: 16pt;
+}
+
+.comment-email {
+    font-size: 12pt;
+}
+
+#images {
+    display: flex;
+    flex-direction: column;
+}
+
+.image {
+    width: 90%;
+    height: 300px;
+    margin: 10px;
+}
