@@ -1,0 +1,16 @@
+* {
+    background-color: azure;
+    font-family: Verdana, serif;
+    font-size: 18pt;
+}
+
+body {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+table {
+    margin: 60px;
+    padding: 60px;
+}
