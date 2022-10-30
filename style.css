@@ -1,0 +1,104 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background: #ffe1e6;
+}
+hr {
+    color: rgba(128,0,128,0.78);
+}
+
+li {
+    color: rgba(128,0,128,0.78);
+}
+
+h1 {
+    padding: 1rem;
+    text-align: center;
+    background: rgba(192, 138, 188, 0.78);
+    color: rgba(128,0,128,0.78);
+}
+
+.blog-open {
+    padding: 0.5rem;
+    margin-left: 1rem;
+    font-size: 25px;
+    line-height: 2.5rem;
+}
+/*Пользователи*/
+table {
+    border-collapse: collapse;
+    border: 1px solid grey;
+   font-size: 20px;
+margin-top: 1em;
+}
+th {
+    padding: 3px 15px;
+    border: 1px solid grey;
+}
+td {
+    padding: 3px;
+    border: 1px solid grey;
+}
+
+/*Фотографии и кнопки*/
+
+button {
+    font-size: 22px;
+    text-align: center;
+    padding: 0.9rem;
+    margin-left: 0.5rem;
+    margin-top: 0.5rem;
+    border: 0;
+    border-radius: 5px;
+    background: #5e165d;
+    color: #fff;
+
+}
+button:hover {
+    cursor: pointer;
+    background: rgba(94, 22, 93, 0.89);
+}
+
+button:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px #a947a7;
+}
+figure {
+    margin-top: 1rem;
+    margin-left: 0.5rem;
+}
+
+/*Комментарии и Посты*/
+.form-element {
+    margin-left: 1rem;
+}
+ form > button {
+     font-size: 15px;
+     margin-bottom: 4px;
+ }
+.card {
+    outline-style: double;
+    padding: 1rem;
+    margin-top: 1rem;
+}
+.card-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: rgba(128, 0, 128, 0.78);
+    font-size: 22px;
+}
+.card-body {
+    font-size: 20px;
+}
+.card-footer {
+    text-align: right;
+    color: rgba(0,0,0, 0.5);
+}
+.visible_off
+{
+    display: none;
+}

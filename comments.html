@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <title>Блог</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>Комментарии</h1>
+</header>
+
+<hr>
+
+<main>
+  <section id="error"></section>
+
+  <section>
+    <form id="form-post">
+      <label for="post-id" class="form-element">ID</label>
+      <input type="number" min="1" step="1" id="post-id" class="form-element" required>
+      <button type="submit" class="form-element submit">Отправить</button>
+      <button type="reset" class="form-element clear">Очистить</button>
+    </form>
+  </section>
+
+  <hr>
+
+  <section id="output"></section>
+</main>
+
+<script src="../blog2/script/comments.js"></script>
+</body>
+</html>
