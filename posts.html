@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header>
+        <span class="myblog"><span class="my">My</span>Blog</span>
+        <div class="header-buttons">
+            <a href="users.html" class="users">Users</a>
+            <a href="posts.html" class="posts-active">Posts</a>
+            <a href="comments.html" class="comments">Comments</a>
+            <a href="photos.html" class="photos">Photos</a>
+        </div>
+    </header>
+    <hr>
+    <main>
+            <section id="error"></section>
+    
+            <section class="page">
+                <form id="posts-box">
+                    <label for="post-id" class="form-element">Post ID</label>
+                    <input type="number" min="1" step="1" id="post-id" class="form-element">
+                    <button type="submit" class="form-element">Submit</button>
+                    <button type="reset" class="form-element">Clear</button>
+                </form>
+            </section>
+            <hr>
+        <section id="posts-output"></section>
+    
+        </main>
+</body>
+<script src="js/script_posts.js"></script>
+</html>

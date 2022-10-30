@@ -1,0 +1,271 @@
+* {
+    margin: 0;
+    padding: 0;
+    background-color: black;
+}
+
+header {
+    text-align: center;
+    font-size: 36px;
+    font-weight: 700;
+    color: white;
+    padding: 70px;
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+
+.posts {
+    font-size: 28px;
+    text-decoration: none;
+    color: white;
+    padding: 15px;
+    margin-right: 20px;
+    background-color: lime;
+    border-radius: 15px;
+}
+
+.comments {
+    font-size: 28px;
+    text-decoration: none;
+    color: white;
+    padding: 15px;
+    margin-right: 20px;
+    background-color: lime;
+    border-radius: 15px;
+}
+
+.photos {
+    font-size: 28px;
+    text-decoration: none;
+    color: white;
+    padding: 15px;
+    margin-right: 20px;
+    background-color: lime;
+    border-radius: 15px;
+}
+
+.users {
+    font-size: 28px;
+    text-decoration: none;
+    color: white;
+    padding: 15px;
+    margin-right: 20px;
+    background-color: lime;
+    border-radius: 15px;
+}
+
+.users-active {
+    background-color: rgb(14, 138, 14);
+    font-size: 28px;
+    text-decoration: none;
+    color: white;
+    padding: 15px;
+    margin-right: 20px;
+    border-radius: 15px;
+}
+
+.posts-active {
+    background-color: rgb(14, 138, 14);
+    font-size: 28px;
+    text-decoration: none;
+    color: white;
+    padding: 15px;
+    margin-right: 20px;
+    border-radius: 15px;
+}
+
+.comments-active {
+    background-color: rgb(14, 138, 14);
+    font-size: 28px;
+    text-decoration: none;
+    color: white;
+    padding: 15px;
+    margin-right: 20px;
+    border-radius: 15px;
+}
+
+.photos-active {
+    background-color: rgb(14, 138, 14);
+    font-size: 28px;
+    text-decoration: none;
+    color: white;
+    padding: 15px;
+    margin-right: 20px;
+    border-radius: 15px;
+}
+
+hr {
+    margin: 0 15% 0 15%;
+    
+    height: 5px;
+    width: 70%;
+    background-color: white;
+    border-radius: 15px;
+}
+
+.form-element {
+    margin-right: 15px;
+    margin-top: 70px; 
+    margin-bottom: 70px;
+}
+
+button {
+    color: white;
+    background-color: lime;
+    border-radius: 15px;
+    padding: 10px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+button:hover {
+    cursor: pointer;
+    box-shadow: 3px 3px 3px
+}
+
+label {
+    color: white;
+    font-size: 34px;
+    font-weight: 800;
+    margin-left: 40px; 
+}
+
+input {
+    background-color: white;
+    font-size: 22px;
+    font-weight: 500;
+    color: black;
+}
+
+.card {
+    border-color: white;
+    border: 5px;
+    border-style: solid;
+    color: white;
+    margin: 100px;
+}
+
+.page {
+    display: flex;
+    justify-content: center;
+}
+
+.card-header {
+    text-align: center;
+    font-size: 20px;
+    color: lime;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.card-body {
+    border-color: white;
+    border: 5px;
+    border-style: solid;
+    margin: 20px 20px;
+    padding: 0px 10px;
+}
+
+span {
+    font-size: 20px;
+    color: lime;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-right: 10px;
+}
+
+.card-footer {
+    border-color: white;
+    border: 5px;
+    border-style: solid;
+    margin: 20px 20px;
+    padding: 0px 10px;
+}
+
+h3 {
+    text-align: center;
+    font-size: 20px;
+    color: lime;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.footer-company {
+    border-color: white;
+    border: 5px;
+    border-style: solid;
+    margin: 20px 20px;
+    padding: 0px 10px;
+}
+
+
+
+.myblog {
+    color: white;
+    font-size: 46px;
+    font-family:'Times New Roman', Times, serif
+}
+
+.my {
+    color: lime;
+    font-size: 46px;
+    font-family:'Times New Roman', Times, serif
+}
+
+.card-posts {
+    border-color: white;
+    border: 5px;
+    border-style: solid;
+    color: white;
+    margin: 100px;
+    padding: 20px;
+}
+
+.title {
+    text-align: center;
+    margin: 10px;
+    font-size: 22px;
+    color: lime;
+}
+
+.card-comments {
+    border-color: white;
+    border: 5px;
+    border-style: solid;
+    color: white;
+    margin: 100px;
+    padding: 20px;
+}
+
+.email {
+    text-align: right;
+    margin: 10px;
+    font-size: 22px;
+    color: lime;
+}
+
+.card-photos {
+    border-color: white;
+    border: 5px;
+    border-style: solid;
+    color: white;
+    margin: 100px;
+    padding: 20px;
+    position: relative;
+}
+
+.images {
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+}
+
+.card-thumbnai {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin:40px;
+}
+
+.card-main-photo {
+    text-align: center;
+}
