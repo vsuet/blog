@@ -1,0 +1,43 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: content-box;
+    background-color: azure;
+    font-family: Verdana serif;
+    font-size: 16pt;
+}
+
+h1 {
+    padding: 10px;
+}
+
+h2 {
+    margin: 10px 10px;
+}
+
+.container-main {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+}
+
+.user {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    padding: 5px 0;
+}
+
+.comment {
+    margin: 10px;
+    padding: 5px;
+    border: 2px solid black;
+}
+
+.image {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    width: 90%;
+    height: 256px;
+}
