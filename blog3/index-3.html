@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comments</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+<h1>Comments:</h1>
+<button class="button-1"><a href="index-2.html">Posts</a> </button>
+<button class="button-1"><a href="index.html">Users</a> </button>
+<button class="button-1"><a href="index4.html">Photos</a> </button>
+<table class="grid">
+    <tr>
+        <th > Имя:</th>
+        <th class="name"></th>
+    </tr>
+    <tr>
+        <th > Почта:</th>
+        <th class="email"></th>
+    </tr>
+    <tr>
+        <th>Body:</th>
+        <th  class="body"></th>
+    </tr>
+
+<script>
+    fetch('https://jsonplaceholder.typicode.com/posts/1/comments')
+    .then(Response=>{
+       return Response.json();
+    })
+    .then(data =>{
+        data.forEach(comments=>{
+          const markup=`<li>${comments.name}</li><hr>`;
+
+          document.querySelector('.name').insertAdjacentHTML('beforeend', markup)
+        });
+        data.forEach(comments=>{
+          const markup=`<li>${comments.email}</li><hr>`;
+
+          document.querySelector('.email').insertAdjacentHTML('beforeend', markup)
+        });
+        data.forEach(comments=>{
+          const markup=`<li>${comments.body}</li><hr>`;
+
+          document.querySelector('.body').insertAdjacentHTML('beforeend', markup)
+        });
+    })
+    .catch(Error=> console.log(Error));
+
+</script>
+
+</body>
+</html>
