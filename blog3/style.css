@@ -1,0 +1,82 @@
+body{
+    background-image: url('fon.png');
+}
+.grid{
+    border: 2px solid;
+    color:black
+}
+.user{
+    border: 2px solid;
+    color:black
+}
+.username{
+    border: 2px solid;
+    color:black
+}
+.email{
+    border: 2px solid;
+    color:black
+}
+.address{border: 2px solid;
+    color:black}
+    .address-1{border: 2px solid;
+        color:black}
+            .address-3{border: 2px solid;
+                color:black}
+                .address-4{border: 2px solid;
+                    color:black}
+                    .address-5{border: 2px solid;
+                        color:black}
+                        .address-6{border: 2px solid;
+                            color:black}
+.phone{
+    border: 2px solid;
+    color:black
+}
+.website{
+    border: 2px solid;
+    color:black
+}
+.company{
+    border: 2px solid;
+    color:black
+}
+.company-1{
+    border: 2px solid;
+    color:black
+}
+.company-2{
+    border: 2px solid;
+    color:black
+}
+.title{
+    border: 2px solid;
+    color:black
+}
+.body{
+    border: 2px solid;
+    color:black
+}
+.name{
+    border: 2px solid;
+    color:black
+}
+.button-1{
+    font-size: 18px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: inline-block;
+    user-select: none;
+    padding: 10px 5px;
+    outline: none;
+    border: 2px solid;
+    border-radius: 1px;
+    transition: 0.2s;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+.button-1:hover{
+    background: rgb(160, 160, 160);
+}
+.button-1:active{
+    background: white;
+}
