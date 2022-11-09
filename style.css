@@ -1,0 +1,115 @@
+*{
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;  
+}
+ .header{
+    text-align: center;
+    background-color:  rgb(183, 238, 227) ;
+    border-radius: 8px;
+ }
+
+body{
+background-color: rgb(210, 251, 237);
+color:  rgb(76, 109, 97);
+}
+
+.mainbody{
+   display: grid;
+   grid-template-columns: 20% 25% 53% ; 
+}
+
+.posts{
+    background-color: rgb(208, 233, 225);;
+margin: 20px;
+border-style: groove;
+display: grid;
+justify-items: center;
+margin-bottom: 10px;
+border-radius: 8px;
+}
+
+.users{
+color: black;
+background-color: rgb(185, 211, 202);
+margin: 20px;
+border-style: groove;
+border-color:cadetblue;
+display: grid;
+justify-items: center;
+margin-bottom: 10px;
+border-radius: 8px;
+}
+
+.photos{
+background-color: rgb(239, 248, 245);
+margin: 20px;
+border-style: groove;
+display: grid;
+justify-items: center;
+margin-bottom: 10px;
+border-radius: 8px;
+}
+
+
+button{
+    margin-bottom: 10px;
+    font-style:italic;
+}
+
+
+footer{
+    background-color: cadetblue;
+    display: grid;
+ justify-items: center;
+}
+
+.onlineuser{
+    background:rgb(226, 253, 245);  
+    border-radius: 20px;
+}
+
+.newpost{
+    background: rgb(226, 253, 245);
+}
+
+.newphoto{
+ background: rgb(226, 253, 245);
+}
+
+.main{
+    display: grid;
+    grid-template-columns: 20% 25% 53% ;
+}
+
+.outputUser{
+    margin: 20px;
+    color: black;
+    background-color:rgb(185, 211, 202) ;
+    border-style: groove;
+    border-color:cadetblue;
+    display: grid;
+    justify-items: center;
+    margin-bottom: 10px;
+    border-radius: 8px;
+}
+.newpost{
+    background-color: rgb(208, 233, 225);
+    margin: 20px;
+    border-style: groove;
+    display: grid;
+    justify-items: center;
+    margin-bottom: 10px;
+    border-radius: 8px;
+}
+.newphoto{
+    background-color: rgb(239, 248, 245);
+    margin: 20px;
+    border-style: groove;
+    display: grid;
+    justify-items: center;
+    margin-bottom: 10px;
+    border-radius: 8px;
+}     
+
+.newpost>h1{
+    color: black;
+}
