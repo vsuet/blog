@@ -14,14 +14,15 @@ userBtn.addEventListener("click", async function () {
     blog.innerHTML = '<h1>Пользователи</h1>';
     output.innerHTML = '';
     output.classList.remove('photosFlex');
-    let response = await fetch(users_url);
-    if (response.ok) {
-        let users = await response.json();
-
+    fetch(users_url)
+        .then ((response) => response.json())
+        .then  ((users) => {
         outputUsers(users);
-    } else {
-        outputError(response.status);
-    }
+
+    })
+        .catch(msg => {
+            outputError(msg);
+        })
 })
 
 function outputUsers(users) {
@@ -60,13 +61,15 @@ postBtn.addEventListener("click", async function () {
     output.innerHTML = '';
     blog.innerHTML = '<h1>Посты</h1>';
     output.classList.remove('photosFlex');
-    let response = await fetch(posts_url);
-    if (response.ok) {
-        let posts = await response.json();
-        output_Posts(posts);
-    } else {
-        outputError(response.status);
-    }
+    fetch(posts_url)
+        .then ((response) => response.json())
+        .then  ((posts) => {
+            output_Posts(posts);
+
+        })
+        .catch(msg => {
+            outputError(msg);
+        })
 })
 
 function output_Posts(posts) {
@@ -78,15 +81,14 @@ function output_Posts(posts) {
                 <p class="center">${post.body}</p>
                 <br>
                 <hr>
-                <button id="commentBtn-${post.id}" onclick="showComments(${post.id})" class="commentPlace"><img src="img/comment.png" alt="" width="30px"></button>
+                <button id="commentBtn-${post.id}" onclick="showComments(${post.id})"  class="commentPlace"><img src="img/comment.png" class="img" alt="" width="30px"></button>
                 <div class="comments" id="commentPlace-${post.id}"></div>
-        </div>  
-         
-                            `
+        </div>   `
     }
 }
 
 function showComments(q) {
+
     let commentPlace = document.getElementById(`commentPlace-${q}`);
     let showComment = document.getElementById(`commentBtn-${q}`);
     if (showComment.classList.contains("commentPlace")) {
@@ -115,14 +117,15 @@ photoBtn.addEventListener("click", async function () {
     output.innerHTML = '';
     blog.innerHTML = '<h1>Фотографии</h1>';
     output.classList.add('photosFlex');
-    let response = await fetch(photos_url);
-    if (response.ok) {
-        let photos = await response.json();
+    fetch(photos_url)
+        .then ((response) => response.json())
+        .then  ((photos) => {
+            output_Photos(photos);
 
-        output_Photos(photos);
-    } else {
-        outputError(response.status);
-    }
+        })
+        .catch(msg => {
+            outputError(msg);
+        })
 })
 
 function output_Photos(photos) {
